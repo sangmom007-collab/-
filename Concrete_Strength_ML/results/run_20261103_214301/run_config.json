@@ -1,0 +1,89 @@
+{
+  "input_file": "C:\\Users\\huey00\\Desktop\\structure\\Concrete_Strength_ML\\data\\concrete_data.xlsx",
+  "sheet_name": "DATA",
+  "input_rows": 356,
+  "rows_with_target": 356,
+  "missing_values_are_imputed_inside_training_pipeline": true,
+  "common_rows_for_all_cases": true,
+  "target_unit": "MPa",
+  "random_state": 42,
+  "splits": [
+    {
+      "Data_Split": "Random Split",
+      "Train_Rows": 284,
+      "Test_Rows": 72,
+      "Train_Excel_Row_Min": 2,
+      "Test_Excel_Row_Min": 5,
+      "Train_Source_Count": null,
+      "Test_Source_Count": null
+    }
+  ],
+  "models": {
+    "Random Split / Case 1": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "best_parameters": {
+        "model__hidden_layer_sizes": [
+          32,
+          16
+        ]
+      },
+      "best_cv_rmse_mpa": 7.573815265190882,
+      "cv_folds": 5
+    },
+    "Random Split / Case 2": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "best_parameters": {
+        "model__hidden_layer_sizes": [
+          16,
+          8
+        ]
+      },
+      "best_cv_rmse_mpa": 9.484876031073304,
+      "cv_folds": 5
+    },
+    "Random Split / Case 3": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "best_parameters": {
+        "model__hidden_layer_sizes": [
+          32,
+          16
+        ]
+      },
+      "best_cv_rmse_mpa": 4.608422676667984,
+      "cv_folds": 5
+    }
+  },
+  "source_id_available": false,
+  "ratio_note": "W_C_Ratio = Water/Cement and Fine_Aggregate_Ratio = Fine_Aggregate/(Fine_Aggregate+Coarse_Aggregate); both are decimal ratios. Existing W/B and S/a percentage columns are retained separately for comparison."
+}

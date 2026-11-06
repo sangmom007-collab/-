@@ -1,0 +1,712 @@
+{
+  "input_file": "C:\\Users\\huey00\\Desktop\\structure\\Concrete_Strength_ML\\data\\concrete_data.xlsx",
+  "input_rows": 356,
+  "rows_with_target": 356,
+  "target_unit": "MPa",
+  "random_state": 42,
+  "test_size": 0.2,
+  "column_mapping": {
+    "Cement": "Cement (kg/m^3)",
+    "Water": "Water (kg/m^3)",
+    "Fine_Aggregate": "Fine_Agg (kg/m^3)",
+    "Coarse_Aggregate": "Coarse_Agg (kg/m^3)",
+    "Fly_Ash": "Fly_Ash (kg/m^3)",
+    "Slag": "Slag (kg/m^3)",
+    "Silica_Fume": "Silica_Fume (kg/m^3)",
+    "Superplasticizer": "SP (kg/m^3)",
+    "AE_Agent": "AE_Agent (kg/m^3)",
+    "Age": "Age (day)",
+    "UPV": "UPV (m/s)",
+    "Rebound_Hardness": "Rebound",
+    "Compressive_Strength": "Strength (MPa)"
+  },
+  "source_id_available": true,
+  "case_features": {
+    "Case 1": [
+      "Cement",
+      "Water",
+      "Coarse_Aggregate",
+      "Fine_Aggregate",
+      "Fly_Ash",
+      "Slag",
+      "Silica_Fume",
+      "Superplasticizer",
+      "AE_Agent",
+      "Age",
+      "W_C_Ratio",
+      "Fine_Aggregate_Ratio"
+    ],
+    "Case 2": [
+      "UPV",
+      "Rebound_Hardness"
+    ],
+    "Case 3": [
+      "Cement",
+      "Water",
+      "Coarse_Aggregate",
+      "Fine_Aggregate",
+      "Fly_Ash",
+      "Slag",
+      "Silica_Fume",
+      "Superplasticizer",
+      "AE_Agent",
+      "Age",
+      "UPV",
+      "Rebound_Hardness",
+      "W_C_Ratio",
+      "Fine_Aggregate_Ratio"
+    ]
+  },
+  "models": [
+    "Linear Regression",
+    "ANN",
+    "XGBoost",
+    "SVR",
+    "GPR"
+  ],
+  "cross_validation": {
+    "folds": 5,
+    "random_split": "KFold(shuffle=True, random_state=42)",
+    "source_split": "GroupKFold",
+    "metrics": [
+      "RMSE",
+      "R2",
+      "MAE"
+    ],
+    "summary": "fold mean and sample standard deviation"
+  },
+  "model_parameters": {
+    "xgboost": {
+      "n_estimators": 300,
+      "max_depth": 3,
+      "learning_rate": 0.03,
+      "min_child_weight": 2,
+      "subsample": 0.9,
+      "colsample_bytree": 0.9,
+      "reg_lambda": 1.0,
+      "n_jobs": 1
+    },
+    "svr": {
+      "kernel": "rbf",
+      "C": 10.0,
+      "gamma": "scale",
+      "epsilon": 0.1
+    },
+    "gpr": {
+      "kernel": "ConstantKernel * RBF",
+      "alpha": 0.1,
+      "n_restarts_optimizer": 1
+    }
+  },
+  "splits": [
+    {
+      "Data_Split": "Random Split",
+      "Train_Rows": 284,
+      "Test_Rows": 72,
+      "Train_Source_Count": NaN,
+      "Test_Source_Count": NaN
+    },
+    {
+      "Data_Split": "Source Group Split",
+      "Train_Rows": 284,
+      "Test_Rows": 72,
+      "Train_Source_Count": 9.0,
+      "Test_Source_Count": 3.0
+    }
+  ],
+  "model_results": {
+    "Random Split / Case 1 / Linear Regression": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 8.425098149204153,
+      "cv_rmse_std": 1.2752573891437564,
+      "cv_folds": 5,
+      "test_r2": 0.704009101592559,
+      "test_rmse_mpa": 7.731492125743998,
+      "test_mae_mpa": 5.970306295858825
+    },
+    "Random Split / Case 1 / ANN": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 7.874717204139614,
+      "cv_rmse_std": 0.9314578777709323,
+      "cv_folds": 5,
+      "test_r2": 0.7537338358085699,
+      "test_rmse_mpa": 7.052230723785408,
+      "test_mae_mpa": 5.742515314520069
+    },
+    "Random Split / Case 1 / XGBoost": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 3.2529558366635802,
+      "cv_rmse_std": 0.5351095391104542,
+      "cv_folds": 5,
+      "test_r2": 0.9618210488275253,
+      "test_rmse_mpa": 2.776745880554325,
+      "test_mae_mpa": 2.1712434450785327
+    },
+    "Random Split / Case 1 / SVR": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 7.284417822916611,
+      "cv_rmse_std": 1.396551907954897,
+      "cv_folds": 5,
+      "test_r2": 0.7707959364771438,
+      "test_rmse_mpa": 6.803545536837285,
+      "test_mae_mpa": 5.023892476078348
+    },
+    "Random Split / Case 1 / GPR": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 4.087650737190006,
+      "cv_rmse_std": 0.48873208101124566,
+      "cv_folds": 5,
+      "test_r2": 0.9335999416808596,
+      "test_rmse_mpa": 3.66191593240739,
+      "test_mae_mpa": 2.6326734685125524
+    },
+    "Random Split / Case 2 / Linear Regression": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 9.942168571666276,
+      "cv_rmse_std": 1.3976442270188236,
+      "cv_folds": 5,
+      "test_r2": 0.558008365558218,
+      "test_rmse_mpa": 9.447810291807157,
+      "test_mae_mpa": 6.88358821911739
+    },
+    "Random Split / Case 2 / ANN": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 9.484876031073304,
+      "cv_rmse_std": 1.4354326938693436,
+      "cv_folds": 5,
+      "test_r2": 0.2035158533394692,
+      "test_rmse_mpa": 12.682728846304535,
+      "test_mae_mpa": 9.25799016054482
+    },
+    "Random Split / Case 2 / XGBoost": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 7.2309398905863915,
+      "cv_rmse_std": 0.7634138515696794,
+      "cv_folds": 5,
+      "test_r2": 0.8402948022215164,
+      "test_rmse_mpa": 5.679154254387546,
+      "test_mae_mpa": 4.15618525981903
+    },
+    "Random Split / Case 2 / SVR": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 9.72579937685225,
+      "cv_rmse_std": 1.883961678047283,
+      "cv_folds": 5,
+      "test_r2": 0.5879056053203265,
+      "test_rmse_mpa": 9.122681090080784,
+      "test_mae_mpa": 6.013397463351034
+    },
+    "Random Split / Case 2 / GPR": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 7.315919707764053,
+      "cv_rmse_std": 1.1135014733337896,
+      "cv_folds": 5,
+      "test_r2": 0.6632336087656521,
+      "test_rmse_mpa": 8.24685789262899,
+      "test_mae_mpa": 5.156571853516368
+    },
+    "Random Split / Case 3 / Linear Regression": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 5.099925634230848,
+      "cv_rmse_std": 0.8943277511103821,
+      "cv_folds": 5,
+      "test_r2": 0.8721584805783849,
+      "test_rmse_mpa": 5.08112760017503,
+      "test_mae_mpa": 3.5200175966470844
+    },
+    "Random Split / Case 3 / ANN": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 5.035432354723069,
+      "cv_rmse_std": 0.9508738189699413,
+      "cv_folds": 5,
+      "test_r2": 0.8711371407640394,
+      "test_rmse_mpa": 5.101384063628362,
+      "test_mae_mpa": 3.7815685193653312
+    },
+    "Random Split / Case 3 / XGBoost": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 2.91427351927105,
+      "cv_rmse_std": 0.42051030342756535,
+      "cv_folds": 5,
+      "test_r2": 0.9730135906332006,
+      "test_rmse_mpa": 2.334515122174618,
+      "test_mae_mpa": 1.8412653509775803
+    },
+    "Random Split / Case 3 / SVR": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 4.469727059027649,
+      "cv_rmse_std": 0.9646782669365891,
+      "cv_folds": 5,
+      "test_r2": 0.9279396410929421,
+      "test_rmse_mpa": 3.8148050588886764,
+      "test_mae_mpa": 2.6981877151089617
+    },
+    "Random Split / Case 3 / GPR": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 3.2403619813040763,
+      "cv_rmse_std": 0.4102912787010387,
+      "cv_folds": 5,
+      "test_r2": 0.9591351211771818,
+      "test_rmse_mpa": 2.8727593523348705,
+      "test_mae_mpa": 2.1465405672200553
+    },
+    "Source Group Split / Case 1 / Linear Regression": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 30.86066312902259,
+      "cv_rmse_std": 21.280573124240604,
+      "cv_folds": 5,
+      "test_r2": -0.9989114637673473,
+      "test_rmse_mpa": 12.847164237114223,
+      "test_mae_mpa": 10.598708590530556
+    },
+    "Source Group Split / Case 1 / ANN": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 316.5468130255189,
+      "cv_rmse_std": 653.3345779804886,
+      "cv_folds": 5,
+      "test_r2": 0.6353657281706171,
+      "test_rmse_mpa": 5.487054066288254,
+      "test_mae_mpa": 4.56932801032585
+    },
+    "Source Group Split / Case 1 / XGBoost": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 9.428858341473752,
+      "cv_rmse_std": 7.094227542360536,
+      "cv_folds": 5,
+      "test_r2": -1.9932842455928386,
+      "test_rmse_mpa": 15.7211559837174,
+      "test_mae_mpa": 12.046583122677273
+    },
+    "Source Group Split / Case 1 / SVR": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 13.972866630208506,
+      "cv_rmse_std": 7.295511866800228,
+      "cv_folds": 5,
+      "test_r2": 0.37764426013437846,
+      "test_rmse_mpa": 7.168525698149145,
+      "test_mae_mpa": 6.068538026788616
+    },
+    "Source Group Split / Case 1 / GPR": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 10.79604325998084,
+      "cv_rmse_std": 8.280632257341162,
+      "cv_folds": 5,
+      "test_r2": -0.06972390631580816,
+      "test_rmse_mpa": 9.398236025095601,
+      "test_mae_mpa": 7.829157109849187
+    },
+    "Source Group Split / Case 2 / Linear Regression": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 11.507746673417232,
+      "cv_rmse_std": 7.957469720296931,
+      "cv_folds": 5,
+      "test_r2": -0.3091990585931934,
+      "test_rmse_mpa": 10.397126763118916,
+      "test_mae_mpa": 7.951135254724654
+    },
+    "Source Group Split / Case 2 / ANN": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 11.94633930458053,
+      "cv_rmse_std": 9.110789367205529,
+      "cv_folds": 5,
+      "test_r2": -0.251854704760494,
+      "test_rmse_mpa": 10.1668744315757,
+      "test_mae_mpa": 8.657602012617613
+    },
+    "Source Group Split / Case 2 / XGBoost": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 10.719566938173084,
+      "cv_rmse_std": 10.136567840838442,
+      "cv_folds": 5,
+      "test_r2": -0.19292523860120214,
+      "test_rmse_mpa": 9.924693655259437,
+      "test_mae_mpa": 8.088065423965455
+    },
+    "Source Group Split / Case 2 / SVR": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 12.124589916743739,
+      "cv_rmse_std": 10.079082718661635,
+      "cv_folds": 5,
+      "test_r2": -0.73898690594555,
+      "test_rmse_mpa": 11.982809436600492,
+      "test_mae_mpa": 10.658379294999484
+    },
+    "Source Group Split / Case 2 / GPR": {
+      "features": [
+        "UPV",
+        "Rebound_Hardness"
+      ],
+      "cv_rmse_mean": 12.694480203162797,
+      "cv_rmse_std": 9.682084602538326,
+      "cv_folds": 5,
+      "test_r2": -1.0985690424687178,
+      "test_rmse_mpa": 13.163522733221994,
+      "test_mae_mpa": 11.066095446011092
+    },
+    "Source Group Split / Case 3 / Linear Regression": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 69.93033218119345,
+      "cv_rmse_std": 129.15723853229287,
+      "cv_folds": 5,
+      "test_r2": -0.17207448252594038,
+      "test_rmse_mpa": 9.837576039827045,
+      "test_mae_mpa": 6.364890439655298
+    },
+    "Source Group Split / Case 3 / ANN": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 430.2508332069805,
+      "cv_rmse_std": 925.2515324301095,
+      "cv_folds": 5,
+      "test_r2": 0.5350406764395264,
+      "test_rmse_mpa": 6.196093706785783,
+      "test_mae_mpa": 5.402032593375949
+    },
+    "Source Group Split / Case 3 / XGBoost": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 8.65001417820204,
+      "cv_rmse_std": 8.980481012592499,
+      "cv_folds": 5,
+      "test_r2": -0.6214315938881052,
+      "test_rmse_mpa": 11.570704763797218,
+      "test_mae_mpa": 10.479775857925414
+    },
+    "Source Group Split / Case 3 / SVR": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 12.18923366545145,
+      "cv_rmse_std": 8.784950055475687,
+      "cv_folds": 5,
+      "test_r2": 0.3280658868756432,
+      "test_rmse_mpa": 7.4485860937569335,
+      "test_mae_mpa": 6.91192553860081
+    },
+    "Source Group Split / Case 3 / GPR": {
+      "features": [
+        "Cement",
+        "Water",
+        "Coarse_Aggregate",
+        "Fine_Aggregate",
+        "Fly_Ash",
+        "Slag",
+        "Silica_Fume",
+        "Superplasticizer",
+        "AE_Agent",
+        "Age",
+        "UPV",
+        "Rebound_Hardness",
+        "W_C_Ratio",
+        "Fine_Aggregate_Ratio"
+      ],
+      "cv_rmse_mean": 11.979857253818457,
+      "cv_rmse_std": 6.878628817226374,
+      "cv_folds": 5,
+      "test_r2": 0.3688565212246475,
+      "test_rmse_mpa": 7.218958521135328,
+      "test_mae_mpa": 6.521414241731325
+    }
+  },
+  "shap": {
+    "case": "Case 3",
+    "model": "XGBoost",
+    "explainer": "KernelExplainer (TreeExplainer compatibility fallback)",
+    "tree_explainer_fallback_reason": "could not convert string to float: '[3.505127E1]'",
+    "background_rows": 30,
+    "explained_test_rows": 50,
+    "plots": [
+      "C:\\Users\\huey00\\Desktop\\structure\\Concrete_Strength_ML\\results\\run_20261103_235413_803940\\figures\\shap_summary_plot.png",
+      "C:\\Users\\huey00\\Desktop\\structure\\Concrete_Strength_ML\\results\\run_20261103_235413_803940\\figures\\shap_dependence_plot.png"
+    ]
+  },
+  "ratio_note": "W_C_Ratio and Fine_Aggregate_Ratio are calculated as decimal ratios; original W/B and S/a percentage columns remain separate."
+}

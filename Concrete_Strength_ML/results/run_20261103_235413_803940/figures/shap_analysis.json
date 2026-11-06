@@ -1,0 +1,12 @@
+{
+  "case": "Case 3",
+  "model": "XGBoost",
+  "explainer": "KernelExplainer (TreeExplainer compatibility fallback)",
+  "tree_explainer_fallback_reason": "could not convert string to float: '[3.505127E1]'",
+  "background_rows": 30,
+  "explained_test_rows": 50,
+  "plots": [
+    "C:\\Users\\huey00\\Desktop\\structure\\Concrete_Strength_ML\\results\\run_20261103_235413_803940\\figures\\shap_summary_plot.png",
+    "C:\\Users\\huey00\\Desktop\\structure\\Concrete_Strength_ML\\results\\run_20261103_235413_803940\\figures\\shap_dependence_plot.png"
+  ]
+}
